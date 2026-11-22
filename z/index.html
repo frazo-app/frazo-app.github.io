@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Frazo</title>
+<style>
+  :root { --bg: #f6f8f1; --fg: #1f2a1c; --muted: #55624f; --accent: #3f8f3a; --accent-fg: #ffffff; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #141a12; --fg: #e9eee5; --muted: #a9b5a3; --accent: #6cc164; --accent-fg: #0d140b; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 18px/1.5 system-ui, sans-serif; }
+  main { max-width: 32rem; margin: 0 auto; padding: 3rem 16px; }
+  h1 { font-size: 2.2rem; margin: 0 0 .25rem; }
+  p { margin: 0 0 1rem; }
+  .lead { color: var(--muted); }
+  a.button { display: inline-block; margin-top: .5rem; padding: .8rem 1.4rem; border-radius: 1rem;
+             background: var(--accent); color: var(--accent-fg); font-weight: 700; text-decoration: none; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Frazo</h1>
+  <p class="lead">Angielskie słówka dla dzieci, mówione na głos.</p>
+  <p>Masz link z Zadaniem od nauczyciela, a Frazo nie otworzyło się samo? Zainstaluj aplikację z Google Play
+     i otwórz link jeszcze raz.</p>
+  <a class="button" href="https://play.google.com/store/apps/details?id=com.tomsoftix.english">Frazo w Google Play</a>
+</main>
+</body>
+</html>

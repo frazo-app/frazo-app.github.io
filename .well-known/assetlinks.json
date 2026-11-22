@@ -1,0 +1,18 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.tomsoftix.english.debug",
+      "sha256_cert_fingerprints": ["7B:7A:61:A5:F3:92:80:A5:F3:F8:8D:E9:1A:0D:1C:CB:3E:F1:92:52:F8:47:BD:19:86:40:A0:48:F4:1C:F0:5E"]
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.tomsoftix.edu_guardailauncher.play.debug",
+      "sha256_cert_fingerprints": ["7B:7A:61:A5:F3:92:80:A5:F3:F8:8D:E9:1A:0D:1C:CB:3E:F1:92:52:F8:47:BD:19:86:40:A0:48:F4:1C:F0:5E"]
+    }
+  }
+]

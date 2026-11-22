@@ -1,31 +1,39 @@
 <!doctype html>
+<!-- PROPOSAL from ticket 04 (not pushed): frazo-site z/index.html. The App Link opens the app when it is installed and
+     verified; this page is what a phone WITHOUT the app sees, and what an in-app browser (Messenger, WhatsApp) shows
+     when it does not hand the link to Android. Not verified on a device. -->
 <html lang="pl">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Frazo</title>
-<style>
-  :root { --bg: #f6f8f1; --fg: #1f2a1c; --muted: #55624f; --accent: #3f8f3a; --accent-fg: #ffffff; }
-  @media (prefers-color-scheme: dark) {
-    :root { --bg: #141a12; --fg: #e9eee5; --muted: #a9b5a3; --accent: #6cc164; --accent-fg: #0d140b; }
-  }
-  * { box-sizing: border-box; }
-  body { margin: 0; background: var(--bg); color: var(--fg); font: 18px/1.5 system-ui, sans-serif; }
-  main { max-width: 32rem; margin: 0 auto; padding: 3rem 16px; }
-  h1 { font-size: 2.2rem; margin: 0 0 .25rem; }
-  p { margin: 0 0 1rem; }
-  .lead { color: var(--muted); }
-  a.button { display: inline-block; margin-top: .5rem; padding: .8rem 1.4rem; border-radius: 1rem;
-             background: var(--accent); color: var(--accent-fg); font-weight: 700; text-decoration: none; }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Zadanie Frazo</title>
+  <style>
+    body { font-family: system-ui, sans-serif; background: #FFF0D0; color: #1E2A4A; margin: 0; padding: 24px 16px; }
+    main { max-width: 420px; margin: 0 auto; }
+    a.btn { display: block; text-align: center; padding: 16px; margin: 12px 0; border-radius: 16px; font-weight: 700;
+            text-decoration: none; border: 3px solid #1E2A4A; }
+    .open { background: #58CC02; color: #1E2A4A; }
+    .store { background: #fff; color: #1E2A4A; }
+    p.small { font-size: 14px; opacity: .8; }
+  </style>
 </head>
 <body>
 <main>
-  <h1>Frazo</h1>
-  <p class="lead">Angielskie słówka dla dzieci, mówione na głos.</p>
-  <p>Masz link z Zadaniem od nauczyciela, a Frazo nie otworzyło się samo? Zainstaluj aplikację z Google Play
-     i otwórz link jeszcze raz.</p>
-  <a class="button" href="https://play.google.com/store/apps/details?id=com.tomsoftix.english">Frazo w Google Play</a>
+  <h1>Zadanie ze słówek od nauczyciela</h1>
+  <p>Ten link otwiera Zadanie w aplikacji Frazo na telefonie dziecka. Rodzic przyjmuje je po wpisaniu PIN-u.</p>
+  <a class="btn open" id="open" href="#">Otwórz w aplikacji Frazo</a>
+  <a class="btn store" href="https://play.google.com/store/apps/details?id=com.tomsoftix.english">Pobierz Frazo z Google Play</a>
+  <p class="small">Po zainstalowaniu aplikacji wróć do wiadomości od nauczyciela i otwórz ten link jeszcze raz.</p>
 </main>
+<script>
+  // An in-app browser often keeps https links to itself; an intent: URL asks Android to open the same link in the app.
+  // Without the app, Chrome follows S.browser_fallback_url to Google Play.
+  var here = location.host + location.pathname + location.search;
+  var play = "https://play.google.com/store/apps/details?id=com.tomsoftix.english";
+  document.getElementById("open").href =
+    "intent://" + here + "#Intent;scheme=https;action=android.intent.action.VIEW;category=android.intent.category.BROWSABLE;" +
+    "S.browser_fallback_url=" + encodeURIComponent(play) + ";end";
+</script>
 </body>
 </html>
